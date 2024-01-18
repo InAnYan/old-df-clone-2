@@ -51,6 +51,7 @@ impl Camera {
     }
 
     pub fn zoom(&mut self, delta: f32) {
+        // TODO: Zoom to center.
         self.zoom = clamp(
             self.zoom + delta,
             self.settings.min_zoom,

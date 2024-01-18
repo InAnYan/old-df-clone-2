@@ -6,6 +6,6 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-bracket-noise = "0.8.7"
 ggegui = "0.3.8"
 ggez = "0.9.3"
+noise = "0.8.2"

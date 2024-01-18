@@ -8,7 +8,6 @@ use crate::engine::game_engine::GameEngine;
 use crate::game::in_game_screen::InGameScreen;
 use crate::game::map::{Map, MapSettings};
 use engine::camera::CameraSettings;
-use engine::tile_map::TileMap;
 use engine::tile_set::TileSet;
 use game::tile::GAME_TILE_SIZE;
 use ggez::conf::{WindowMode, WindowSetup};
@@ -46,16 +45,17 @@ fn main() {
 
     let tile_set = TileSet::new(TILE_SET_COUNT_X, TILE_SET_COUNT_Y, TILE_SET_TILE_SIZE);
 
-    let tile_map = TileMap::new(&ctx, tile_set_image, tile_set, GAME_TILE_SIZE);
-
     let map = Map::new(
+        &ctx,
         MapSettings {
             width: 50,
             height: 50,
             depth: 50,
             seed: 2,
         },
-        tile_map,
+        tile_set_image,
+        tile_set,
+        GAME_TILE_SIZE,
     );
 
     let in_game = InGameScreen::new(map, CameraSettings::default());

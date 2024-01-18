@@ -15,7 +15,9 @@ pub struct InGameScreen {
 }
 
 impl InGameScreen {
-    pub fn new(map: Map, camera_settings: CameraSettings) -> Self {
+    pub fn new(mut map: Map, camera_settings: CameraSettings) -> Self {
+        map.regenerate_instance_array();
+
         Self {
             map,
             camera: Camera::from_settings(camera_settings),
